@@ -1,0 +1,3 @@
+import detector
+
+detector.detectUser()
