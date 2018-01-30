@@ -55,11 +55,13 @@ function determineIcon(n) {
 }
 
 function getWeather(){
+  
   forecast.innerHTML = ""
   fetch('https://galvanize-cors.herokuapp.com/https://api.darksky.net/forecast/bde5a9d0bfab5a7865bebf064f6d7366/39.7392,-104.9903').then(function(response) {
     return response.json().then(function(wData) {
       //console.log(wData);
       h1.innerHTML = Math.round(wData.currently.temperature * 10) / 10 + " °F"
+      h1.style.width="200px"
       var icon = wData.currently.icon
       // console.log(currentIcon);
       var skycons = new Skycons({"color": "white"});
@@ -73,15 +75,15 @@ function getWeather(){
       highh5Tag = document.createElement('h5')
       lowh5Tag = document.createElement('h5')
 
-      highh5Tag.innerHTML = "H " + Math.round(wForecast[0].apparentTemperatureHigh * 10)/10 + " °F"
-      lowh5Tag.innerHTML = "L "+  Math.round(wForecast[0].apparentTemperatureLow * 10)/10 + " °F"
+      highh5Tag.innerHTML = "H " + Math.round(wForecast[0].apparentTemperatureHigh * 10)/10 + "°F"
+      lowh5Tag.innerHTML = "L "+  Math.round(wForecast[0].apparentTemperatureLow * 10)/10 + "°F"
       highh5Tag.style.marginBottom = '0px';
       lowh5Tag.style.marginTop = '5px';
 
       highh5Tag.style.marginLeft = '2px';
       lowh5Tag.style.marginLeft = '2px';
 
-
+      highLow.innerHTML = ""
       highLow.append(highh5Tag)
       highLow.append(lowh5Tag)
 
@@ -102,7 +104,7 @@ function getWeather(){
         var head4 = document.createElement('h4')
         var head5 = document.createElement('h4')
 
-        head5.innerHTML = getForecastDay(weekdays + i + 1)
+        head5.innerHTML = getForecastDay(weekdays + i)
 
         skycons.add(canvas, determineIcon(wForecast[i].icon));
         head3.innerHTML = Math.round(wForecast[i].apparentTemperatureHigh * 10)/10 + " °F"

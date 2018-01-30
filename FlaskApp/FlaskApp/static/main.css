@@ -46,11 +46,12 @@ body {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  width: 375px;
+  width: 390px;
 }
 
 #forecast {
-  margin-left: 12%;
+  margin-left: 22%;
+  margin-top: 4%;
 }
 
 #dailyWeather {
@@ -67,6 +68,8 @@ body {
   align-content: center;
   width: 80%;
   position: absolute;
+  font-size: 1.5em;
+  top: 80%;
 }
 
 #newsWrapper {
@@ -77,7 +80,7 @@ body {
   bottom: 30%;
   position: absolute;
   left: 20%;
-  top: 70%;
+  top: 80%;
 }
 
 #news {
@@ -86,6 +89,7 @@ body {
 }
 
 .articles {
+  margin-top: 10em;
   float: left;
   height: 510px;
   width: 728px;
