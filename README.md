@@ -26,15 +26,15 @@ and traverse into the sites-available folder
 In this folder you'll have to create a {{your project name}}.conf file that communicates with apache2.
 Paste the following code into it:
 
- WSGIDaemonProcess sysinfo user=pi group=www-data threads=5
- WSGIScriptAlias /sysinfo /home/pi/www/sysinfo/sysinfo.wsgi
- <Directory "/home/pi/www/sysinfo">
- 	WSGIProcessGroup sysinfo
- 	WSGIScriptReloading On
- 	WSGIApplicationGroup %{GLOBAL}
- 	Require all granted
- </Directory>
- ErrorLog /home/pi/www/sysinfo/logs/error.log
+WSGIDaemonProcess sysinfo user=pi group=www-data threads=5
+WSGIScriptAlias /sysinfo /home/pi/www/sysinfo/sysinfo.wsgi
+<Directory "/home/pi/www/sysinfo">
+	WSGIProcessGroup sysinfo
+	WSGIScriptReloading On
+	WSGIApplicationGroup %{GLOBAL}
+  Require all granted
+</Directory>
+ErrorLog /home/pi/www/sysinfo/logs/error.log
 
 Now open Chromium and in the URL put: http://localhost:4200
 
